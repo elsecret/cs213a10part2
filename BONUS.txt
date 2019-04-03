@@ -1,0 +1,6 @@
+People in general waited less in well_sem compared to well.
+Semaphores allow for the "wake up" call to be pre-scheduled,
+whereas if a thread blocked upon a cond_wait, the signal must come after.
+This means, for X well drinks total, only X signals need to be sent, in the semaphore version.
+In the non-semaphore version, at least in our implementation, there was a lot of wasted signaling
+in order to protect the critical sections / prevent race conditions that resulted in deadlocks.
